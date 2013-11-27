@@ -68,7 +68,7 @@
 -->
 <context-param>
     	<param-name>HOSTURL</param-name>
-    	<param-value>https://24.126.149.255:8081/gafin</param-value>
+    	<param-value>https://24.126.149.255/gafin</param-value>
 </context-param>
 <!--
 <context-param>
@@ -86,12 +86,14 @@
     	<param-name>ECHOSIGN_APIKEY</param-name>
     	<param-value>W8KKB42KXW34XN</param-value>
 </context-param>
- 
+
 <context-param>
     	<param-name>ECHOSIGN_APIKEY</param-name>
     	<param-value>WKAPQRU2PN3FXB</param-value>
 </context-param>
--->
+--> 
+
+<!-- PROD KEY -->
 <context-param>
     	<param-name>ECHOSIGN_APIKEY</param-name>
     	<param-value>XLTDZ5434E4N75</param-value>
@@ -105,7 +107,7 @@
 -->
 <context-param>
     	<param-name>ECHOSIGN_CALLBACKURL</param-name>
-    	<param-value>https://24.126.149.255:8081/gafin/jsp/echosigncallback.jsp</param-value>
+    	<param-value>https://24.126.149.255/gafin/jsp/echosigncallback.jsp</param-value>
 </context-param>
 
 <context-param>
@@ -132,17 +134,18 @@
     	<param-name>WEBSITE_EMAIL_PASS</param-name>
     	<param-value>9Chonchol</param-value>
 </context-param>
-<!--
+
 <context-param>
     	<param-name>BLOG_URL</param-name>
     	<param-value>http://24.126.149.255/wordpress</param-value>
 </context-param>
--->
+
+<!--
 <context-param>
     	<param-name>BLOG_URL</param-name>
     	<param-value>http://localhost/wordpress</param-value>
 </context-param>
-
+-->
 <context-param>
     	<param-name>BALANCED_API_KEY</param-name>
     	<param-value>ak-prod-2vVyLV0h6uHgZZpVkEljcokx61WzPClKb</param-value>

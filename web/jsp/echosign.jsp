@@ -25,7 +25,7 @@
 	
 	EchoSign es = new EchoSign(
 			getServletContext().getInitParameter("ECHOSIGN_URL"),
-			getServletContext().getInitParameter("ECHOSIGN_APIKEY"), getServletContext().getInitParameter("PATH") + doc,
+			getServletContext().getInitParameter("ECHOSIGN_APIKEY"), getServletContext().getInitParameter("PATH") + "/docs/" + doc,
 			 "", getServletContext().getInitParameter("ECHOSIGN_CALLBACKURL")); //** dest file not needed because of callback url
 	
 	//Long.parseLong(getServletContext().getInitParameter("ECHOSIGN_POLLFREQ")));
