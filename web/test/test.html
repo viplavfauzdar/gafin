@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" /> //below validations are actually HTML5 and not bootstrap. The JS needs to be implemented specifically for these.
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.validate.min.js"></script>
+<script src="../js/additional-methods.min.js"></script>
+<script src="../js/jquery.maskedinput.js"></script> -->
+</head>
+<body>
+<form method=get id=f name=f>
+<input type=text name=t id=t required number="true">
+<br> <label class="checkbox"><input type="checkbox" required id="pptosnda" name="pptosnda" value="1">Blah</label>
+<p><input type="email" id=em required>
+<p><input type="url" id=em3 required>
+<p><input type="tel" id=em4 required pattern="[0-9]{10}">
+<p><input type="text" id=em1 required pattern="[A-Za-z0-9]*" maxlength=6>
+<p><input type="date" id=em5 required>
+<p><input type="number" id=em6 required maxlength=5 max=99999>
+<p><input type="text" id=em7 required pattern="[0-9]{5}" maxlength=5 placeholder=Zip>
+<br><textarea id=t required maxlength=20 minlength=2></textarea>
+<input type=submit class=btn><input type=reset class=btn>
+</form>
+<iframe src=test.jsp id=ifr></iframe>
+<script>
+$("#f").validate();
+
+//setInterval('doo();',3000);
+function doo(){
+	alert(encodeURI('hello'));
+	$('#ifr').hide();
+}
+</script>
+
+
+
+</body>
+</html>

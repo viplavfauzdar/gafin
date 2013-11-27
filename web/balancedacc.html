@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/additional-methods.min.js"></script>
+<script src="js/jquery.maskedinput.js"></script>
+<script src="js/jquery.number.min.js"></script>
+<script src="js/gafin.js"></script>
+
+<button class="btn btn-warning" id="openBtn">Account</button>
+<button class="btn btn-warning" id="btn_ach">ACH</button>
+<button class="btn btn-warning" id="btn_tran">Transaction</button>
+
+	<!-- ACCOUNT -->
+	<div id="mdl_acc" class="modal hide fade" tabindex="-1" role="dialog"
+		data-backdrop="static" data-keyboard="false">
+		<form id='frm_acc'>
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Registration: Step 4</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Account Information</legend>									    
+					<input type='text' id='account_name' name='account_name' class='input-xlarge' placeholder='Account Name' required minlength="10" maxlength="20"> 
+					<br><select id="acctype" name="acctype" class="span2">
+							<option value="person">Personal</option>
+							<option value="business">Business</option>
+						</select> <label class="help-inline">Account Type (Personal or Business)</label>
+					<span id="p_ein"><input type='text' id='ein' name='ein' class='input-large' placeholder='EIN' required minlength="5" maxlength="9" number="true"> 
+						<input type='text' id='ein2' name='ein2' class='input-large' placeholder='Confirm EIN' required minlength="9" maxlength="15" number="true" equalTo="#ein"></span> 	 
+					<br><input type='text' id='routing_number' name='routing_number' class='input-large' placeholder='Routing Number' required minlength="9" maxlength="15" number="true"> 
+						<input type='text' id='routing_number2' name='routing_number2' class='input-large' placeholder='Confirm Routing Number' required minlength="9" maxlength="15" number="true" equalTo="#routing_number">
+					<br><input type='text' id='account_number' name='account_number' class='input-large' placeholder='Account Number' required minlength="10" maxlength="15" number="true">
+						<input type='text' id='account_number2' name='account_number2' class='input-large' placeholder='Confirm Account Number' required minlength="10" maxlength="15" number="true" equalTo="#account_number">
+					<br><select id="account_type" name="account_type" class="span2">
+							<option value="CHECKING">Checking</option>
+							<option value="SAVINGS">Savings</option>											
+						</select> <label class="help-inline">Account Type (Checking or Saving)</label>
+					<br> <span class="text-error"><strong>Note: </strong>The account above will be verified with <strong><u>two small ACH deposits</u></strong>. To activate your account you will need to log back in and 
+					<strong><u>confirm the deposit amounts</u></strong> under your profile settings.</span>														
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<input type="reset" class="btn" value=Reset>			
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn btn-danger" id="btn_nxt_acc">Save Account</button>
+		</div>
+		</form>
+	</div><!-- /mdl_acc -->
+	
+	<!-- ACH VERIFY -->
+	<div id="mdl_ach" class="modal hide fade" tabindex="-1" role="dialog"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>ACH Verification</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Verify ACH Deposits</legend>
+				<form id='frm_ach'>
+					<input type='email' id='email_ach' name='email_ach' class='input-xlarge' placeholder='Email' required minlength="10" maxlength="40">
+					<h5>ACH Amounts</h5> 
+						 <input type='text' id='ach_amt1' name='ach_amt1' class='input-mini' placeholder='Amt 1' required number="true" min="1" max="99">
+					<br> <input type='text' id='ach_amt2' name='ach_amt2' class='input-mini' placeholder='Amt 2' required number="true" min="1" max="99"> 
+					<br> <label class="help-inline">*Please enter amounts in whole cents (ex. 43 and not 0.43)</label>											
+				</form>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn btn-danger" id="btn_nxt_ach">Verify</button>
+		</div>
+	</div><!-- /mdl_ach -->
+	
+	<!-- TRANSACT -->
+	<div id="mdl_tran" class="modal hide fade" tabindex="-1" role="dialog"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Transaction</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Invest</legend>
+				<form id='frm_tran'>
+					<input type='email' id='email_comp' name='email_comp' class='input-xlarge' placeholder='Company Email' required minlength="10" maxlength="40">
+					<br><input type='email' id='email_inv' name='email_inv' class='input-xlarge' placeholder='Investor Email' required minlength="10" maxlength="40">
+					<h5>Amount</h5> 
+						 <input type='text' id='tran_amt' name='tran_amt' class='input-mini' placeholder='Amount' required number="true" min="1" max="9999">																					
+				</form>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn btn-danger" id="btn_nxt_tran">Invest</button>
+		</div>
+	</div><!-- /mdl_tran -->
+	
+	
+	
+	
+<!-- ============= ALERT BOX ============= -->
+	<div id="alert_main" class="alert" style="position:fixed;z-index:5000;top:20px;right:20px;display:none">  		
+			<div id='alert_msg'></div>
+	</div> 	
+	
+<!-- ============= LOADER ============= -->
+<div id="mdl_loader" class="modal hide fade" data-backdrop="static" data-keyboard="false" style="z-index:10000;position:fixed;height:100px;width:100px;top:43%;left:66%;background-color: #000000;opacity: 0.8;filter: alpha(opacity=80);">	
+<!-- <div id="mdl_loader" style="position:absolute;height:100%;width:100%;background-color: #000000;opacity: 0.6;filter: alpha(opacity=60); padding: 30%">  -->
+     <!-- <div class="progress progress-striped active">
+  		<div class="bar" style="width: 100%"></div>
+	</div>  -->
+	<img src="img/ajax-loader4.gif"> 
+	<!-- <button class="btn btn-inverse"><i class="icon-refresh icon-spin icon-large icon-white"></i></button>  -->      	
+</div><!-- /mdl_loader -->	
+
+<script>
+var loaderOn = function(){
+	$('#mdl_loader').modal('show');	
+};
+
+var loaderOff = function(){
+	setTimeout(function(){
+		$('#mdl_loader').modal('hide');
+	},1);	
+};
+
+
+$('#openBtn').click(function(){
+	$('#mdl_acc').modal('show');
+});
+
+$('#btn_ach').click(function(){
+	$('#mdl_ach').modal('show');
+});
+
+$('#btn_tran').click(function(){
+	$('#mdl_tran').modal('show');
+});
+
+validateForm("#frm_acc","right");
+validateForm("#frm_ach","right");
+validateForm("#frm_tran","right");
+
+$('#p_ein').hide();
+$('#acctype').change(function(){
+	if($('#acctype').val()=="business"){ 
+		$('#p_ein').show();		
+	}else{
+		$('#p_ein').hide();
+	}
+});
+
+$('#btn_nxt_acc').click(function(){
+	if($('#frm_acc').valid()){		
+		loaderOn();
+		$.get('jsp/balancedacc.jsp?action=create&t=' + Math.random() + '&' + $('#frm_acc').serialize(),function(data,status){
+			alert(data);
+			appalert(data,status);
+			loaderOff();
+		});
+		/*var xmlhttp=new XMLHttpRequest();
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			  	appalert("success:" + xmlhttp.responseText,'success');
+		  	}else{
+		  		appalert("Fail: " + xmlhttp.responseText,'error');
+			}
+		}
+		xmlhttp.open("GET",'jsp/balancedacc.jsp?username=ummagumma8909&t=' + Math.random() + "&" + $('#frm_acc').serialize(),true);
+		xmlhttp.send();	*/	
+	}
+});
+
+$('#btn_nxt_ach').click(function(){
+	if($('#frm_ach').valid()){		
+		loaderOn();
+		$.get('jsp/balancedacc.jsp?action=verify&email=' + $('#email_ach').val() + '&t=' + Math.random(),function(data,status){
+			alert(data);
+			appalert(data,status);
+			loaderOff();
+		});
+	}
+});
+
+$('#btn_nxt_tran').click(function(){
+	if($('#frm_tran').valid()){		
+		loaderOn();
+		$.get('jsp/balancedacc.jsp?action=transact' + '&t=' + Math.random() + '&' + $('#frm_tran').serialize(),function(data,status){
+			alert(data);
+			appalert(data,status);
+			loaderOff();
+		});
+	}
+});
+</script>
+

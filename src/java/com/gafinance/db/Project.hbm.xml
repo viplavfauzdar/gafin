@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 15, 2013 1:05:23 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.gafinance.db.Project" table="project" catalog="gafinance">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="website" type="string">
+            <column name="website" length="250" />
+        </property>
+        <property name="videoUrl" type="string">
+            <column name="video_url" length="250" />
+        </property>
+        <property name="image1" type="string">
+            <column name="image_1" length="45" />
+        </property>
+        <property name="image2" type="string">
+            <column name="image_2" length="45" />
+        </property>
+        <property name="image3" type="string">
+            <column name="image_3" length="45" />
+        </property>
+        <property name="targetAmount" type="java.lang.Integer">
+            <column name="target_amount" />
+        </property>
+        <property name="raisedAmount" type="java.lang.Integer">
+            <column name="raised_amount" />
+        </property>
+        <property name="approved" type="java.lang.Byte">
+            <column name="approved" />
+        </property>
+        <property name="currentdate" type="timestamp">
+            <column name="currentdate" length="19" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="19" />
+        </property>
+        <property name="deletedind" type="java.lang.Byte">
+            <column name="deletedind" />
+        </property>
+    </class>
+</hibernate-mapping>

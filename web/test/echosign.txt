@@ -1,0 +1,37 @@
+Signature and Initials fields 
+• {{_es_:signer:signature}}   – A signature field assigned to the signer. 
+• {{_es_:signer1:initials}}  – An initials field assigned to the first signer. 
+• {{_es_:signer:signatureblock}} – A signature block assigned to the signer. 
+• {{_es_:signer:optsignature}}   – An optional signature field assigned to the signer 
+• {{_es_:signer1:optinitials}}  – An optional initials field assigned to the first signer. 
+
+Special EchoSign fields 
+• {{*_es_:sender:title}}   – A mandatory field for the sender to enter her title. 
+• {{_es_:signer1:company}}  – A field for the first signer to enter her company name. 
+• {{_es_:signer2:fullname}}  – A field for the second signer to enter her full name. 
+• {{_es_:signer:date}}  – A read-only field containing the date of signature. 
+• {{_es_:signer:email}}  – A read-only field containing the signer’s email address. 
+
+Prefill 
+• {{price_es_:prefill}}   – A field the sender fills in before sending the document. 
+
+Text fields 
+• {{address_es_:signer1}}  – A optional field for the first signer to enter her address. 
+• {{*city_es_:signer1}}   – A mandatory field for the first signer to enter city. 
+
+Read-only fields 
+• {{!price}}     – A read-only field. Signers cannot change the value of this field. 
+
+Check Boxes 
+• {{[]}}    – A check box. 
+• {{[x]}}     – A check box, checked by default. 
+
+Radio Buttons 
+• {{(Red)Color}}    – A radio button that has the value of Red when selected. 
+
+Field Validation 
+• {{*Mobile_es_:sender:phone}}  – A mandatory phone field allowing US phone number format 
+• {{d_es_:signer:num(>0,<60)}} – An optional number field allowing values between 0 and 60 
+
+Conditional Rules 
+• {{field_es_:showif(price>60)}}  – A field that will show if the field "price" has a value greater than 60. 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootbox.min.js"></script>
+<body>
+
+    <button id="btn_d1" class="btn btn-danger">Danger</button>    
+    <script>
+        $('#btn_d1').click(function(){
+            alert('hahaha');
+        });
+    </script>
+        
+        
+<a href="#" class="btn" id="openBtn">Open modal</a>
+
+<div id="mdl_confirmdialog" class="modal hide fade" tabindex="-1" role="dialog" data-backdrop='static' data-keyboard='false'>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">�</button>
+			<h3>Confirmation</h3>
+	</div>
+	<div class="modal-body" id="confirm_msg">
+		<p>My modal content here�</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" id="btn_yes">Yes</button>
+        <button class="btn" id="btn_no">No</button>
+	</div>
+</div>
+
+
+<button id="btnclk">Click</button>
+
+
+<script>
+
+$(document).ready(function() {
+	
+
+$('#openBtn').click(function(e){
+	e.preventDefault();
+	confirmdialog('<h5 class=text-error>Are you sure!</h5>',function(result){
+        console.log(result);
+  });  
+});
+
+function confirmdialog(msg,callback){
+	  $('#confirm_msg').html(msg);
+	  $('#mdl_confirmdialog').modal('show');    
+	  $('#btn_yes').click(function(){
+		$('#mdl_confirmdialog').modal('hide');  
+	    if(callback) callback(true);
+	    $('#btn_yes').unbind('click');	
+	  });
+	  $('#btn_no').click(function(){
+		  $('#mdl_confirmdialog').modal('hide');	
+		  if(callback) callback(false);
+	  });    
+};
+
+});
+
+
+$('#btnclk').click(function(){
+	alert('asdsad');
+	bootbox.confirm("Are you sure?", function(result) {
+		alert("Confirm result: "+result);
+	});
+});
+</script>
+
+</body>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Finance Georgia Online</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<!-- <link rel="stylesheet" href="css/font-awesome.css" type="text/css" />  -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/additional-methods.min.js"></script>
+<script src="js/jquery.maskedinput.js"></script>
+<script src="js/jquery.number.min.js"></script>
+<script src="js/gafin1.js"></script>
+<script src="js/gafin.js"></script>
+<script src="js/bootbox.min.js"></script>
+<script src="js/autoNumeric.js"></script>
+<style>
+/* need below to get rid of ghost div at bottom */
+html, body
+{
+    height: 100%;
+    margin: 0;
+}
+.span12 {
+   height:100%;
+}
+</style>
+</head>
+
+<body data-offset="40">
+<Script>
+
+//** want the loader here so its the first to trigger
+var loaderOn = function(){
+	$('#div_loader').fadeIn();
+	//$('#mdl_loader').show();	
+};
+
+var loaderOff = function(){
+	//setTimeout(function(){
+		$('#div_loader').fadeOut();
+		//$('#mdl_loader').hide();
+	//},100);	
+};
+//** works sorta!
+//$(document).ready(function() {
+//alert($(window).innerHeight() +',' +$(window).innerWidth());
+//$('#mdl_loader').css({top:($(window).innerHeight()/2 - 50) + 'px',left:($(window).innerWidth()/2 - 50) + 'px'});
+//});
+</Script>
+<!-- ============= LOADER ============= class="modal hide fade" data-backdrop="static" data-keyboard="false" -->
+<div id="div_loader" style="z-index:100000;position:fixed;height:100%;width:100%;background-color: #000000;opacity: 0.7;filter: alpha(opacity=70);">
+<!-- <div id="mdl_loader" style="z-index:100000;position:fixed;height:100px;width:100px;top:43%;left:46%;background-color: #000000;opacity: 0.8;filter: alpha(opacity=80);">  -->	
+<!-- <div id="mdl_loader" style="position:absolute;height:100%;width:100%;background-color: #000000;opacity: 0.6;filter: alpha(opacity=60); padding: 30%">  -->
+     <!-- <div class="progress progress-striped active">
+  		<div class="bar" style="width: 100%"></div>
+	</div>  -->
+	<img src="img/ajax-loader4.gif" style="position:fixed;height:100px;width:100px;top:43%;left:46%;"> 
+	<!-- <button class="btn btn-inverse"><i class="icon-refresh icon-spin icon-large icon-white"></i></button>  -->      	
+<!-- </div>-->
+</div>
+<!-- /mdl_loader -->
+ 
+<div id="div_top"></div> <!-- for scrolling -->
+<!-- ==================== main container ==================== -->
+	<div class="container">
+
+	<!-- ====================== Header =================== -->
+		<header class="header">
+			<div class="row">				
+				 <div class="span6">
+					<a href="index.html"
+						title="Finance Georgia Online"><img src="img/finga_logo.png" alt="Logo goes here!" style="height: 80px;margin: 5px"/></a>						
+				</div>
+				<!-- <div class="span5">
+					<h1>Finance Georgia</h1>
+				</div>  -->
+				<div class="span6">
+					<div class="pull-right">
+						<br /><br />
+						<div id="dv_susi">							
+							<div class="btn-group" id="bg_susi">
+								<button class="btn" id="btn_signup"><i class="icon-plus-sign"></i> Sign Up</button>								
+								<button class="btn" id="btn_signin"><i class="icon-user"></i> Sign In</button>
+							</div>
+								<span class="label label-info" id="greeting"></span>
+								<button class="btn" id="btn_signout"><i class="icon-remove-sign"></i> Sign Out</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- /header -->
+
+		<!-- Navbar
+    ================================================== -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="active"><a href="index.html">Home </a></li>
+							<li class=""><a href="#" id="lnk_projects">Portfolio</a></li>
+							<!-- <li class=""><a href="#" id="lnk_profile">Account</a></li>  -->							
+							<li class=""><a href="#" id="lnk_faq">FAQ</a></li>
+							<li class=""><a href="#" id="lnk_contact">Contact</a></li>
+							<li class=""><a href="#" id="lnk_about">About</a></li>
+							<li class=""><a href="#" id="lnk_blog">Blog</a></li>
+							<li class="dropdown"><a data-toggle="dropdown"
+								class="dropdown-toggle" href="#" id="lnk_settings">Settings<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<!-- <li class="nav-header">Register</li>  -->
+									<li><a href="#" id="lnk_account">Account</a></li>
+									<li><a href="#" id="lnk_profile">Profile</a></li>
+								</ul></li>							
+							<li id="li_register" class=""><a href="#" id="lnk_register">Register</a></li>							
+						</ul>
+						<div class="navbar-search form-inline pull-right"
+							style="margin-top: 6px">
+							<div class="input-append">
+								<input type="text" placeholder="Search Projects" id="srch_projects"/>
+								<button class="btn btn-warning" id="btn_srch_projects">
+									<i class="icon-search icon-white"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- /.nav-collapse -->
+				</div>
+			</div>
+			<!-- /navbar-inner -->
+		</div>		
+		<script>
+		var navactive = function(){
+			$('li').removeClass("active");
+			$('li').addClass("");
+		};
+		$('li').click(function(){			
+			navactive();
+			$(this).toggleClass('active');
+		});
+		</script>
+<!-- =================================================== CAROUSEL =================================================== -->
+<div id="myCarousel" class="carousel slide homCar">
+		<div class="carousel-inner" style="border-top:18px solid #222; border-bottom:1px solid #222; border-radius:4px;">		
+		  <div class="item active">		  
+			<img src="img/atl1.jpg" alt="#" style="max-height:350px; min-width:100%"/>
+			<div class="carousel-caption">
+				  <h4>Welcome to Finance Georgia </h4>
+				  <p>
+				  An "E-Trade" for Georgia Companies.
+				  </p>
+			</div>
+		  </div>
+		  <div class="item">
+			<img src="img/atl2.jpg" alt="#" style="max-height:350px; min-width:100%"/>
+			<div class="carousel-caption">
+				  <h4>Extraordinary Companies; Extraordinary Investment Opportunities </h4>
+				  <p>
+				  Get the exclusive opportunity to invest in companies before they go public.
+				  </p>
+			</div>
+		  </div>
+		  <div class="item">
+			<img src="img/atl3.jpg" alt="#" style="max-height:350px; min-width:100%"/>
+			<div class="carousel-caption">
+				  <h4>Why invest <u>on</u> Wall Street, when you can invest <u>in</u> Peachtree Street?</h4>
+				  <p>
+				  Buy stock in local high-growth companies.
+				  </p>
+			</div>
+		  </div>
+		</div>
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+	<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+</div>
+<!-- =================================================== END CAROUSEL =================================================== -->		
+
+
+	<!-- container for project pages and widgets -->
+	<div id="div_projects"></div>
+
+
+<!-- =================================== FILLER =========================================== -->
+<div class="row" id="row_fillers">
+	<div class="span6">
+	<div class="well well-small">
+		<h3> Welcome to Finance Georgia!</h3>	
+		<h5>Invest Locally</h5>
+		<p>
+		Finance Georgia gives you the exclusive ability to invest in companies before they go public. 
+		<br/><br/>Called “an E-Trade for Georgia Companies,” 
+		Finance Georgia allows you to buy shares in high-growth companies before Venture Capitalists, Private Equity firms, or Silicon Valley has the chance. 
+		<br/>
+		<!-- <br/><br/> For years, pre-IPO offers were available only to the likes of Warren Buffett and Mark Cuban. Finance Georgia, now invites you to join the 
+		first marketplace allowing Georgia investors to buy shares in high-growth companies. 
+		This is your chance to invest in the next Google, Facebook, or bio-tech invention, before it hits Wall-Street.<br/>
+		</p>-->
+		<br/>
+	</div>
+	</div>
+	<div class="span6">
+	<div class="well well-small">
+		<h3> Invest in Georgia Companies</h3>
+		<h5>Our aim is simple</h5>	
+		<p>
+		For years, pre-IPO offers were available only to the likes of Warren Buffett and Mark Cuban. Finance Georgia invites you to join the 
+		first marketplace that allows Georgia investors to buy shares in high-growth Georgia companies. <br/><br/>This is your chance to invest in the next Google, Facebook, or 
+		bio-tech invention, before it hits Wall-Street.
+		</p>
+		<!-- <strong> Templates Selling Process:</strong>	
+		<p>
+		It is very simple process to upload your bootstrap based templates. Create an account and upload your templates. 
+		It will be published on the website, when it is tested in the lab and varified.Your can track your online activity yourself.
+		</p> -->
+
+	</div>
+	</div>
+
+	<div class="span12">
+	<div class="well well-small">
+		<em>
+		<strong>Why invest <u>on</u> Wall Street, when you can invest <u>in</u> Peachtree Street?  </strong>
+		</em>
+
+	</div>
+	</div>
+</div>
+
+
+<!-- ============================== ALL MODALS ===================== -->
+
+<!-- ============================== LOGIN MODAL ============================== -->
+	<div id="mdl_login" class="modal hide fade" tabindex="-1"
+		data-backdrop="static" data-keyboard="false">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Sign In</h3>
+		</div>
+		<div class="modal-body">
+			<form id="frm_login" name="frm_login" class="well" style="margin:0px">								
+			<table border=0 cellspacing='0px' cellpadding='15px'>
+				<tr>								
+					<td><input type='text' id='username1' name='username1' class='input-medium' placeholder='Username' required data-validation-error-msg="Username is required!"> <!-- <span class='inline-help'>Your username is your email address!</span>  --> 
+					<br> <input type='password'	id='password1' name='password1' class='input-medium' placeholder='Password' required>
+					<!-- <br> <label class="checkbox"><input type="checkbox"> Remember me!</label>  -->											
+				<td class="text-left">
+					<p class="text-warning">Forgot your password? <br><a id="lnk_passreset" href='#'>Click here</a> to reset the password!
+			</table>
+			</form>										
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn btn-primary" id="btn_login">Login</button>
+		</div>
+
+	</div>
+
+	<!-- modal container for project registration -->
+	<div id="div_register"></div>
+
+	<!-- modal container for profile -->
+	<div id="div_profile"></div>
+
+  
+	<!-- ============= ALERT BOX ============= -->
+	<div id="alert_main" class="alert" style="position:fixed;z-index:5000;top:20px;right:20px;display:none">
+		<!-- <button type="button" class="close" data-dismiss="alert">×</button> removes it deo DOM  -->  		
+			<div id='alert_msg'></div>
+	</div> 
+
+	<!-- ============= CONFIRMATION BOX ================ -->
+
+	<div id="mdl_confirmdialog" class="modal hide fade" tabindex="-1" role="dialog">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+				<h3>Confirmation</h3>
+		</div>
+		<div class="modal-body" id="confirm_msg">
+			<p>My modal content here…</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" data-dismiss="modal" id="btn_yes">Yes</button>
+	        <button class="btn" data-dismiss="modal" id="btn_no">No</button>
+		</div>
+	</div>
+	
+	<!-- ============================== COMING SOON MODAL ============================== -->
+	<!-- <div id="mdl_comingsoon" class="modal hide fade" tabindex="-1" data-backdrop="static" data-keyboard="false">		
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3 class="text-info">Coming Soon!</h3>
+		</div>
+		<div class="modal-body">
+			<h4>Thank you for visting Finance Georgia</h4>
+			<h5>The site is currently under <u>QA</u> and will be live soon.</h5>
+			<p>If you have any questions please use the <u>Contact</u> link, or email us at <a href="mailto:info@financegeorgia.com">info@financegeorgia.com</a></p>			
+			<p>-Thanks <br><small>Finance Georgia Team.</small>											
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" data-dismiss="modal">Ok</button>			
+		</div>			
+	</div> -->
+	<!-- / COMING SOON MODAL -->
+ 				
+	<script>
+		//$('#mdl_comingsoon').modal('show');					
+	</script>
+	<!-- Footer
+      ================================================== -->
+ 		     
+	<hr class="soften" />
+	<footer class="footer">
+		<p>
+			<span class="pull-right"> <a class="btn btn-primary" href="https://www.facebook.com/financegeorgia">f</a> 
+			<a class="btn btn-warning" href="http://twitter.com/financegeorgia">t</a>
+			<a class="btn btn-primary" href="#">in</a>
+			<a class="btn btn-danger" href="#">g+</a> 
+			</span> 
+				<a href="index.html">Home</a> - <a href="#" id="ftr_lnk_projects">Portfolio</a> - <a
+				href="#" id="ftr_lnk_faq">FAQ</a> - <a href="#" id="ftr_lnk_contact">Contact</a> - <a href="#" id="ftr_lnk_about">About</a>
+		</p>
+		<hr class="soften" />
+		<div class="row">
+			<span class="span6 text-left"><small>&copy; 2013 Copyright Finance Georgia. </span>					
+			<span class="span6 text-right muted">Conceived and built in Georgia</small></span>
+			</br><p class="span12 text-left"><small>This website and all investment opportunities and information are intended for use by Georgia residents only.</p>
+		</div>
+		<br/>
+		<br/>
+	</footer>
+	<!-- /footer -->
+
+	</div>
+	<!-- /main container -->	
+<div id="div_bottom"></div>  <!-- for scrolling -->
+
+</body>
+
+</html>

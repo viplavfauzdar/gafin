@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>File Upload</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!-- UPLOAD -->
+	<div id="mdl_upload" class="modal hide fade" tabindex="-1" role="dialog"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Registration: Step 4</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Project Files</legend>														
+					<iframe src='jsp/files.jsp' style='border: 0px; width: 100%; height: 650px' scrolling='no'></iframe>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>			
+		</div>
+	</div>
+	<script>
+		$('#mdl_upload').modal('show');
+	</script>
+</body>
+</html>

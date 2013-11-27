@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SOAP-ENV:Envelope
+	xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding"
+	xmlns:tns="http://api.echosign"
+	xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:ns16="http://dto16.api.echosign"
+	xmlns:ns14="http://dto14.api.echosign"
+	xmlns:ns15="http://dto15.api.echosign"
+	xmlns:ns9="http://dto9.api.echosign"
+	xmlns:ns12="http://dto12.api.echosign"
+	xmlns:ns6="http://dto.api.echosign"
+	xmlns:ns13="http://dto13.api.echosign"
+	xmlns:ns10="http://dto10.api.echosign"
+	xmlns:ns7="http://dto7.api.echosign"
+	xmlns:ns8="http://dto8.api.echosign"
+	xmlns:ns11="http://dto11.api.echosign"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SOAP-ENV:Body>
+		<tns:testPing xmlns:tns="http://api.echosign">
+			<tns:apiKey>W8KKB42KXW34XN</tns:apiKey>
+		</tns:testPing>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

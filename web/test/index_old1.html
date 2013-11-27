@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Georgia Finance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/gafin.js"></script>
+</head>
+
+<body data-offset="40">
+	<div class="container">
+		<header class="header">
+			<div class="row">
+				<h1 class="span6">
+					<a href="index.html"
+						title="bootstrap free business website template"><img
+						src="img/bootstrap_logo.png" alt="GA Finance Logo goes here!" /></a>
+				</h1>
+				<div class="span6">
+					<div class="pull-right">
+						<br />
+						<div id="dv_susi">
+							<div class="btn-group">
+								<button class="btn">Sign Up</button>
+								<a href="#mdl_login" class="btn" data-toggle="modal">Sign In</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Navbar
+    ================================================== -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="active"><a href="index.html">Home </a></li>
+							<li class=""><a href="bootstrappage/about_us.html">Explore</a></li>
+							<li class="dropdown"><a data-toggle="dropdown"
+								class="dropdown-toggle" href="#">Submit<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Register</li>
+									<li><a href="#mdl_user" data-toggle="modal">Project</a></li>
+									<li><a href="webdevelopment.html">Backer</a></li>
+								</ul></li>
+							<li class=""><a href="#" id="lnk_profile">Profile</a></li>
+							<li class=""><a href="bootstrappage/portfolio.html">Projects</a></li>
+							<li class=""><a href="#mdl_login" data-toggle="modal">Login</a></li>
+							<li class=""><a href="bootstrappage/contact.html">Contact</a></li>
+						</ul>
+						<form action="#" class="navbar-search form-inline pull-right"
+							style="margin-top: 6px">
+							<div class="input-append">
+								<input type="text" placeholder="Search Projects" />
+								<button class="btn btn-warning">
+									<i class="icon-search icon-white"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+					<!-- /.nav-collapse -->
+				</div>
+			</div>
+			<!-- /navbar-inner -->
+		</div>
+
+	</div>
+	<!-- main container -->
+
+
+	<!-- ALL MODALS
+    ================================================== -->
+
+	<!-- LOGIN MODAL -->
+	<div id="mdl_login" class="modal hide fade" tabindex="-1"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Login</h3>
+		</div>
+		<div class="modal-body">
+			<input type='text' id='username' class='input-medium'
+				placeholder='Username'> <br> <input type='password'
+				id='password' class='input-medium' placeholder='Password'>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn btn-primary" id="btn_login">Login</button>
+		</div>
+	</div>
+
+	<!-- REGISTRATION ========================================== -->
+
+	<!-- USER -->
+	<div id="mdl_user" class="modal hide fade" tabindex="-1" role="dialog"
+		data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Registration: Step 1</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Contact Information</legend>
+				<form id='frm_user'>
+					<br> <input type='text' id='user.first_name'
+						class='input-medium' placeholder='First Name'> <input
+						type='text' id='user.mi' class='input-mini' placeholder='Mi'>
+					<input type='text' id='user.last_name' class='input-medium'
+						placeholder='Last Name'> <br> <input type='text'
+						id='user.email' class='input-xlarge' placeholder='Email'>
+					<input type='text' id='user.email' class='input-xlarge'
+						placeholder='Email'> <br> <input type='password'
+						id='user.password' class='input-medium' placeholder='Password'>
+					<input type='password' id='user.password' class='input-medium'
+						placeholder='Password'> <br> <select
+						id="user.role_id" class="span2" placeholder="Registeration">
+						<option value="1">Project</option>
+						<option value="3">Investor</option>
+						<option value="2">Other</option>
+					</select> <span class="help-inline">What are you registering?</span>
+				</form>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn btn-primary" id="btn_nxt_user">Next</button>
+		</div>
+	</div>
+
+	<!-- PROJECT -->
+	<div id="mdl_project" class="modal hide fade" tabindex="-1"
+		role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Registration: Step 2</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Project Information</legend>
+				<form id='frm_project'>
+					<br> <input type='text' id='project.name' class='input-large'
+						placeholder='Name'> <br>
+					<textarea rows='10' id='project.description' class='input-xlarge'
+						placeholder='Description' style='width: 500px'></textarea>
+					<!-- <br> <input type='text' id='project.website'
+						class='input-xlarge' placeholder='Website'>-->
+					<br> <input type='text' id='project.video_url'
+						class='input-xlarge' placeholder='Video Url'>
+					<!-- <br> <span
+						class="help-inline">Image 1</span> <input type='file'
+						id='project.image_1' class='input-medium' placeholder='Image 1'>
+					<br> <span class="help-inline">Image 2</span> <input
+						type='file' id='project.image_2' class='input-medium'
+						placeholder='Image 2'> <br> <span class="help-inline">Image
+						3</span> <input type='file' id='project.image_3' class='input-medium'
+						placeholder='Image 3'>  -->
+					<br> <input type='text' id='project.target_amount'
+						class='input-medium' placeholder='Target Amount'>
+				</form>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn" data-dismiss="modal" id='btn_bk_project'>Back</button>
+			<button class="btn btn-primary" id="btn_nxt_project">Next</button>
+		</div>
+	</div>
+
+	<!-- LOCATION -->
+	<div id="mdl_location" class="modal hide fade" tabindex="-1"
+		role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Registration: Step 3</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Additional Information</legend>
+				<form id='frm_location'>
+					<br> <input type='text' id='location.address'
+						class='input-xlarge' placeholder='Address'> <br> <input
+						type='text' id='location.city' class='input-medium'
+						placeholder='City'> <input type='text' id='location.state'
+						class='input-mini' data-provide='typeahead' data-items='4'>
+					<input type='text' id='location.zip' class='input-mini'
+						placeholder='Zip'> <br>
+					<!-- <input type='text' id='location.country' class='input-medium'
+						placeholder='Country'>-->
+					<br> <input type='text' id='location.website'
+						class='input-xlarge' placeholder='Website'>
+					<div class="input-prepend">
+						<span class="add-on"><img src='img/facebook.png'></span> <input
+							type='text' id='location.facebook' class='input-xlarge'
+							placeholder='Facebook URL'>
+					</div>
+					<div class="input-prepend">
+						<span class="add-on"><img src='img/googleplus.png'></span> <input
+							type='text' id='location.google_plus' class='input-xlarge'
+							placeholder='Google+  URL'>
+					</div>
+					<div class="input-prepend">
+						<span class="add-on"><img src='img/twitter.png'></span> <input
+							type='text' id='location.twitter' class='input-xlarge'
+							placeholder='Twitter URL'>
+					</div>
+					<div class="input-prepend">
+						<span class="add-on"><img src='img/linkedin.png'></span> <input
+							type='text' id='location.linkedin' class='input-xlarge'
+							placeholder='LinkedIn URL'>
+					</div>
+				</form>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+			<button class="btn" data-dismiss="modal" id='btn_bk_location'>Back</button>
+			<button class="btn btn-primary" id="btn_nxt_location">Next</button>
+		</div>
+	</div>
+
+	<!-- UPLOAD -->
+	<div id="mdl_upload" class="modal hide fade" tabindex="-1"
+		role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<h3>Registration: Step 4</h3>
+		</div>
+		<div class="modal-body">
+			<fieldset>
+				<legend>Project Picture</legend>
+				<iframe src='upload.html' style='border: 0px; width: 100%'></iframe>
+			</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal">Close</button>
+		</div>
+	</div>
+
+	<!-- ALERT -->
+	<div id="mdl_alert" class="modal hide fade" tabindex="-1" role="dialog"
+		data-backdrop="static" data-keyboard="false">
+		<div class="alert alert-info" style="margin: 0px" id="alert_msg"></div>
+	</div>
+
+	<!-- PROFILE ========================================== -->
+
+	<div id='mdl_edit' class='modal hide fade' tabindex='-1' role='dialog'
+		data-backdrop='static' data-keyboard='false'>
+		<div class='row-fluid'>
+			<div class='modal-header'>
+				<button type='button' class='close' data-dismiss='modal'
+					aria-hidden='true'>×</button>
+				<h3>Project Profile</h3>
+			</div>
+			<div class='modal-body'>
+				<div class='span4 well'>
+					<div class='form-horizontal' id='tab_user'>
+						<fieldset>
+							<legend>
+								user Info
+								<button id='btn_save_user' class='btn btn-primary'
+									style='float: right' disabled>Save</button>
+							</legend>
+							<div class='control-group'>
+								<label class='control-label' for='user.first_name'>First
+									Name</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=user.first_name
+										disabled value='asdsa'>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='user.mi'>Mi</label>
+								<div class='controls'>
+									<input type=text class='input-mini' id=user.mi disabled
+										value='s'>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='user.last_name'>Last
+									Name</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=user.last_name
+										disabled value='asdasd'>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='user.email'>Email</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=user.email disabled
+										value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='user.password'>Password</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=user.password disabled
+										value=''>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class='span4 well'>
+					<div class='form-horizontal' id='tab_project'>
+						<fieldset>
+							<legend>
+								project Info
+								<button id='btn_save_project' class='btn btn-primary'
+									style='float: right' disabled>Save</button>
+							</legend>
+							<div class='control-group'>
+								<label class='control-label' for='project.name'>Name</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=project.name disabled
+										value='asdas'>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='project.description'>Description</label>
+								<div class='controls'>
+									<textarea rows='10' id='project.description'
+										class='input-medium' placeholder='Description' disabled
+										data-toggle='tooltip'
+										title='Click on image to upload a new one!'>asdsad</textarea>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='project.video_url'>Video
+									Url</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=project.video_url
+										disabled value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='project.image_1'>Image
+									1</label>
+								<div class='controls' id='div_img'>
+									<a href='#mdl_upload' data-toggle='modal'><img
+										src='//placehold.it/100x100' data-toggle='tooltip'
+										title='Click on image to upload a new one!'></a>
+								</div>
+								<br>
+								<iframe src='upload.html' style='border: 0px; width: 100%'></iframe>
+								<div class='control-group'>
+									<label class='control-label' for='project.target_amount'>Target
+										Amount</label>
+									<div class='controls'>
+										<input type=text class='input-medium' id=project.target_amount
+											disabled value=''>
+									</div>
+								</div>
+								<div class='control-group'>
+									<label class='control-label' for='project.approved'>Approved</label>
+						</fieldset>
+					</div>
+				</div>
+				<div class='span4 well'>
+					<div class='form-horizontal' id='tab_location'>
+						<fieldset>
+							<legend>
+								location Info
+								<button id='btn_save_location' class='btn btn-primary'
+									style='float: right' disabled>Save</button>
+							</legend>
+							<div class='control-group'>
+								<label class='control-label' for='location.address'>Address</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.address
+										disabled value='asdsa'>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.city'>City</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.city disabled
+										value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.state'>State</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.state
+										disabled value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.zip'>Zip</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.zip disabled
+										value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.website'>Website</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.website
+										disabled value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.facebook'>Facebook</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.facebook
+										disabled value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.google_plus'>Google
+									Plus</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.google_plus
+										disabled value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.twitter'>Twitter</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.twitter
+										disabled value=''>
+								</div>
+							</div>
+							<div class='control-group'>
+								<label class='control-label' for='location.linkedin'>Linkedin</label>
+								<div class='controls'>
+									<input type=text class='input-medium' id=location.linkedin
+										disabled value=''>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='modal-footer'>
+			<button class='btn' data-dismiss='modal' aria-hidden='true'>Close</button>
+			<button id='btn_edit' class='btn btn-primary'>Edit</button>
+		</div>
+	</div>
+
+
+	<!-- MY SCRIPTS
+ ================================================== -->
+	<script>
+$(document).ready(function() {
+	$("#btn_signout").click(function() {
+		alert('adsad');
+		$("#dv_susi").html("<div class='btn-group'><button class='btn'>Sign Up</button><a href='#mdl_login' class='btn' data-toggle='modal'>Sign In</a></div>");
+	});
+
+	
+	var subjects = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District Of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','PALAU','Pennsylvania','PUERTO RICO','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']; 
+	$('#state').typeahead({source: subjects})
+		
+});
+
+
+</script>
+
+</body>
+</html>

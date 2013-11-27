@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>GAFinance</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+<filter>
+    <filter-name>AccessFilter</filter-name>
+    <filter-class>
+        com.gafinance.servlets.AccessFilter
+    </filter-class>
+    
+    <init-param>
+        <param-name>REDIRECT</param-name>
+        <param-value>FALSE</param-value>
+	</init-param>
+    <init-param>
+        <param-name>HTTP_PORT</param-name>
+        <param-value>8081</param-value>
+	</init-param>
+    <init-param>
+        <param-name>HTTPS_PORT</param-name>
+        <param-value>443</param-value>
+	</init-param>
+    <init-param>
+        <param-name>ERROR_REDIRECT</param-name>
+        <param-value>/gafin/jsp/error.jsp</param-value>
+	</init-param>	        
+    <init-param>
+        <param-name>allowed-urls</param-name>
+        <param-value>
+        	/favicon.ico,/index.html,(/contact.html)+.+,(/about.html)+.+,(/faq.html)+.+,(/jsp/wpcreateuser.jsp?)+.+,(/blog.jsp?)+.+,(/register.jsp?)+.+,(/projectpage.jsp?)+.+,(/projectwidget.jsp?)+.+,/projectwidget.jsp,(/css/)+.+,(/img/)+.+,(/js/)+.+,(/data/)+.+/.+(.jpg),(/data/)+.+/.+(.mpg),(/data/)+.+/.+(.mpeg),(/data/)+.+/.+(.mov),(/bootstrappage/)+.+,(/jsp/error.jsp?)+.+,/jsp/error.jsp,/jsp/login.jsp,/jsp/logout.jsp,/jsp/checksession.jsp,(/jsp/save.jsp?)+.+,(/jsp/echosigncallback.jsp?)+.+,(/jsp/echosigncheck.jsp?)+.+,(/jsp/checkusername.jsp?)+.+,(/jsp/contactemail.jsp?)+.+,(/jsp/passreset.jsp?)+.+,(/test/)+.+,(/docs/)+.+
+        </param-value>
+    </init-param>
+</filter>
+
+<filter-mapping>
+    <filter-name>AccessFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+ 
+<error-page>
+    <error-code>500</error-code>
+    <location>/jsp/error.jsp</location>
+</error-page>
+
+<!--
+<context-param>
+    	<param-name>PATH</param-name>
+    	<param-value>/var/lib/openshift/51dcb4e9e0b8cd48350000d6/jbossews/webapps/gafin</param-value>
+</context-param>
+-->
+<context-param>
+    	<param-name>PATH</param-name>
+    	<param-value>E:/netbeans_workspace/gafin/web</param-value>
+</context-param>
+<!--
+<context-param>
+    	<param-name>HOSTURL</param-name>
+    	<param-value>https://app1-gafinance.rhcloud.com/gafin</param-value>
+</context-param>
+-->
+<context-param>
+    	<param-name>HOSTURL</param-name>
+    	<param-value>https://24.126.149.255:8081/gafin</param-value>
+</context-param>
+<!--
+<context-param>
+    	<param-name>ECHOSIGN_URL</param-name>
+    	<param-value>https://secure.echosign.com/services/EchoSignDocumentService16</param-value>
+</context-param>
+-->
+<context-param>
+    	<param-name>ECHOSIGN_URL</param-name>
+    	<param-value>https://secure.echosign.com/services/EchoSignDocumentService16</param-value>
+</context-param>
+
+<!-- DEV KEYS 
+<context-param>
+    	<param-name>ECHOSIGN_APIKEY</param-name>
+    	<param-value>W8KKB42KXW34XN</param-value>
+</context-param>
+ 
+<context-param>
+    	<param-name>ECHOSIGN_APIKEY</param-name>
+    	<param-value>WKAPQRU2PN3FXB</param-value>
+</context-param>
+-->
+<context-param>
+    	<param-name>ECHOSIGN_APIKEY</param-name>
+    	<param-value>XLTDZ5434E4N75</param-value>
+</context-param>
+ 
+<!--
+<context-param>
+    	<param-name>ECHOSIGN_CALLBACKURL</param-name>
+    	<param-value>https://app1-gafinance.rhcloud.com/gafin/jsp/echosigncallback.jsp</param-value>
+</context-param>
+-->
+<context-param>
+    	<param-name>ECHOSIGN_CALLBACKURL</param-name>
+    	<param-value>https://24.126.149.255:8081/gafin/jsp/echosigncallback.jsp</param-value>
+</context-param>
+
+<context-param>
+    	<param-name>ECHOSIGN_POLLFREQ</param-name>
+    	<param-value>20000</param-value>
+</context-param>
+
+<context-param>
+    	<param-name>ECHOSIGN_DOC1</param-name>
+    	<param-value>checklist_accinvestor</param-value>
+</context-param>
+
+<context-param>
+    	<param-name>ECHOSIGN_DOC2</param-name>
+    	<param-value>subscriptionagreement.docx</param-value>
+</context-param>
+
+<context-param>
+    	<param-name>WEBSITE_EMAIL</param-name>
+    	<param-value>info@financegeorgia.com</param-value>
+</context-param>
+
+<context-param>
+    	<param-name>WEBSITE_EMAIL_PASS</param-name>
+    	<param-value>9Chonchol</param-value>
+</context-param>
+<!--
+<context-param>
+    	<param-name>BLOG_URL</param-name>
+    	<param-value>http://24.126.149.255/wordpress</param-value>
+</context-param>
+-->
+<context-param>
+    	<param-name>BLOG_URL</param-name>
+    	<param-value>http://localhost/wordpress</param-value>
+</context-param>
+
+<context-param>
+    	<param-name>BALANCED_API_KEY</param-name>
+    	<param-value>ak-prod-2vVyLV0h6uHgZZpVkEljcokx61WzPClKb</param-value>
+</context-param>
+
+</web-app>
