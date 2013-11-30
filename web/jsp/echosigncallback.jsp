@@ -1,3 +1,4 @@
+
 <%@include file="db.jsp"%>
 <%@page import="com.gafinance.utils.EchoSign"%>
 <%
@@ -21,7 +22,8 @@ try{
 				getServletContext().getInitParameter("PATH") + "/data/" + rs.getString(1) + "/" + rs.getString(2), "");
 		String returnfilename = es.getDocuments(documentKey);
 		if(returnfilename!=null){
-			PreparedStatement pstmt1 = con.prepareStatement("update documents set downloaded_document=? where user_id=? and document_key = ?");
+                        out.println("success!");
+                        PreparedStatement pstmt1 = con.prepareStatement("update documents set downloaded_document=? where user_id=? and document_key = ?");
 			pstmt1.setString(1, returnfilename);
 			pstmt1.setString(2, rs.getString(1));
 			pstmt1.setString(3, widgetKey);

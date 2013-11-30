@@ -68,7 +68,7 @@
 -->
 <context-param>
     	<param-name>HOSTURL</param-name>
-    	<param-value>https://24.126.149.255/gafin</param-value>
+    	<param-value>https://50.155.52.170/gafin</param-value>
 </context-param>
 <!--
 <context-param>
@@ -81,12 +81,14 @@
     	<param-value>https://secure.echosign.com/services/EchoSignDocumentService16</param-value>
 </context-param>
 
-<!-- DEV KEYS 
+<!-- DEV KEYS
+VIP
 <context-param>
     	<param-name>ECHOSIGN_APIKEY</param-name>
     	<param-value>W8KKB42KXW34XN</param-value>
 </context-param>
 
+UMMAGUMMA
 <context-param>
     	<param-name>ECHOSIGN_APIKEY</param-name>
     	<param-value>WKAPQRU2PN3FXB</param-value>
@@ -107,7 +109,7 @@
 -->
 <context-param>
     	<param-name>ECHOSIGN_CALLBACKURL</param-name>
-    	<param-value>https://24.126.149.255/gafin/jsp/echosigncallback.jsp</param-value>
+    	<param-value>https://50.155.52.170/gafin/jsp/echosigncallback.jsp</param-value>
 </context-param>
 
 <context-param>
@@ -137,7 +139,7 @@
 
 <context-param>
     	<param-name>BLOG_URL</param-name>
-    	<param-value>http://24.126.149.255/wordpress</param-value>
+    	<param-value>http://50.155.52.170/wordpress</param-value>
 </context-param>
 
 <!--

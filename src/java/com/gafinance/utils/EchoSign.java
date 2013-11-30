@@ -61,6 +61,10 @@ public class EchoSign {
 	public String getError() {
 		return errorcode;
 	}
+        
+        public EchoSignDocumentService16PortType getPort(){
+            return port;
+        }
 
 	public EchoSign(String url, String apiKey, String fileName,
 			String destfileName, String callbackurl) throws Exception {
@@ -133,6 +137,21 @@ public class EchoSign {
 			logger.info("EchoSign JS: " + js);
 			dockey = widgetresult.getDocumentKey();
 			logger.info("Document Key: " + dockey);						
+						
+		}
+	}
+        
+        public void createPersonalWidget(String email) throws Exception {		
+				
+		widgetresult = port.createPersonalEmbeddedWidget(apiKey, null, widgetInfo(), new WidgetPersonalizationInfo(null, null, email, null, null));
+
+		if (widgetresult.getSuccess()) {
+				
+			js = widgetresult.getJavascript();
+			logger.info("EchoSign JS: " + js);
+			dockey = widgetresult.getDocumentKey();
+			logger.info("Document Key: " + dockey);	
+                        //logger.info("Form Data:" + port.getFormData(apiKey, dockey).getFormDataCsv());
 						
 		}
 	}

@@ -1,3 +1,4 @@
+
 <script>
 $(document).ready(function() {
 	$('#btn_edit').click(function() {
@@ -211,6 +212,13 @@ $(document).ready(function() {
 			}
 		});				
 	});
+        
+        $("#DOB").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1920:2020",
+            dateFormat: "yy-mm-dd"
+        });
 
 });//end of doc ready			
 
@@ -390,11 +398,11 @@ $(document).ready(function() {
 										} else if (field.equals("DOB")) {
 											out.println("<div class='control-group'><label class='control-label' for='"
 													+ field + "'>Date of Birth</label>");										
-											out.println("<div class='controls'><input type=date class='input-medium' id="													
+											out.println("<div class='controls'><input type=text class='input-medium' id="													
 													+ field + " name='" + field + "'"
 													+ " disabled value='"
 													+ maskNullStr(rs.getString(i))
-													+ "' required></div></div>");
+													+ "' required dateISO='true'></div></div>");
 										} else {
 											out.println("<div class='control-group'><label class='control-label' for='"
 													+ field + "'>" + placeholder + "</label>");										

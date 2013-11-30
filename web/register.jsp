@@ -71,8 +71,8 @@
                 } else {
                     if ($('#investor_type').val() == 'U') {
                         $('#hdr_pptosnda').html('Risk Disclosure');
-                        $('#frame_pptosnda').attr('scrolling', 'no');
-                        $('#frame_pptosnda').attr('src', 'docs/checklist_unaccinvestor.pdf?t=' + Math.random());
+                        $('#frame_pptosnda').attr('scrolling', 'yes');
+                        $('#frame_pptosnda').attr('src', 'docs/checklist_unaccinvestor.htm?t=' + Math.random());
                         $('#cls_pptosnda').hide();
                         $('#div_acc').show();
                         $('#frame_pptosnda').css({height: ($('#mdl_pptosnda').height() - 200) + 'px'});
@@ -214,13 +214,15 @@
         $('#lnk_pp').click(function() {
             $('#frame_pptosnda').attr('src', '');
             $('#hdr_pptosnda').html('Privacy Policy');
-            $('#frame_pptosnda').attr('src', 'docs/privacypolicy.pdf?t=' + Math.random());
+            $('#frame_pptosnda').attr('scrolling','yes');
+            $('#frame_pptosnda').attr('src', 'docs/privacypolicy.htm?t=' + Math.random());
             mdlppShow();
         });
         $('#lnk_tos').click(function() {
             $('#frame_pptosnda').attr('src', '');
             $('#hdr_pptosnda').html('Terms of Service');
-            $('#frame_pptosnda').attr('src', 'docs/termsofservice.pdf?t=' + Math.random());
+            $('#frame_pptosnda').attr('scrolling','yes');
+            $('#frame_pptosnda').attr('src', 'docs/termsofservice.htm?t=' + Math.random());
             mdlppShow();
         });
         $('#lnk_nda').click(function() {
@@ -244,17 +246,17 @@
             }
         });
 
-        $("[data-toggle=popover]").popover();
+        //$("[data-toggle=popover]").popover();
 
         var chkuser = function() {
             if ($("#username").valid()) {
-                $.post("jsp/checkusername.jsp", {username: $("#username").val()}, function(data, tatus) {
-                    var pp = $("#chk_usr").popover({
+                $.post("jsp/checkusername.jsp", {username: $("#username").val()}, function(data) {
+                    $("#chk_usr").popover({
                         placement: "right",
                         trigger: "manual",
                         content: data
                     });
-                    pp.data("popover").options.content = data;
+                    //pp.data("popover").options.content = data;
                     $("#chk_usr").popover("show");
                     if (data.match('taken')) {
                         $("#div_user").removeClass('success');
@@ -265,8 +267,12 @@
                         $("#div_user").addClass('success');
                     }
                     $('#password1').focus(function() {
+                        alert('asdasd');
                         $("#chk_usr").popover("hide");
                     });
+                    //$( "#username" ).blur(function() {
+                    //    $("#chk_usr").popover("hide");
+                    //});
                 });
             }
         };
@@ -290,6 +296,13 @@
 
         //** format target amount to currency
         $('#target_amount').autoNumeric('init', {aSign: '$', aPad: 'false'});
+        
+        $("#DOB").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1920:2020",
+            dateFormat: "yy-mm-dd"
+        });
 
     });//end of document onload
 
@@ -318,23 +331,19 @@
                            placeholder='Last Name' required minlength="2" maxlength="20" lettersonly="true"> <br> <input type='text'
                            id='email' name='email' class='input-xlarge' placeholder='Email' required email="true"><!-- <span class="help-inline">This will be your username.</span>  -->
                     <input type='text' id='email1' name='email1' class='input-xlarge' placeholder='Confirm Email'  required email="true" equalTo="#email"> 
-                    <br> <input type='date' id='DOB' name='DOB' class='input-medium' placeholder='Date of Birth' required> <span class="help-inline">Date of Birth (mm/dd/yyyy)</span>
+                    <br> <input type='text' id='DOB' name='DOB' class='input-medium' placeholder='Date of Birth' required dateISO="true"> <span class="help-inline">Date of Birth (mm/dd/yyyy)</span>
                     <br> <span id='div_user' class="control-group"><div class="input-append"><input type='text' id='username' name='username' class='input-medium'
                                                                                                     placeholder='Username' required minlength="8" maxlength="15" required> <a href="#" class="btn" id="chk_usr">Check</a></div></span>
-                    <br><input type='password' id='password1' name='password1' class='input-medium' placeholder='Password' required value=''>
-                    <input type='password' id='password2' name='password2' class='input-medium' placeholder='Confirm Password' value=''>
+                    <br><input type='password' id='password1' name='password1' class='input-medium' placeholder='Password' required>
+                    <input type='password' id='password2' name='password2' class='input-medium' placeholder='Confirm Password' required>
                     <br><textarea rows='3' id='about_me' name='about_me' class='input-xlarge'
                                   placeholder='A little about you in 200 characters or less' style='width: 500px' maxlength="200"></textarea>	 
                     <br> <select
                         id="role_id" class="span2" placeholder="Registration">
                         <option value="1">Business</option>
-                        <option value="2">Investor</option>
-                        <!-- <option value="2">Other</option>  -->
-                        <!-- <span class="input-group-addon"><input type="radio" checked value="1" id="role_id" name="role_id">Project<input type="radio" value="1" id="role_id" name="role_id">Investor</span>  -->						
+                        <option value="2">Investor</option>                        
                     </select> <span class="help-inline">What are you registering</span>
-                    <a href="#"><i class="icon-question-sign" data-toggle="popover" data-placement="top" data-html="true" title="Registration Type" data-content="Register a Project if you are going to raise capital!"></i></a>
-                    <!-- <label class="radio"><input type="radio" checked value="1" id="role_id" name="role_id">Project</label>
-                    <label class="radio"><input type="radio" value="1" id="role_id" name="role_id">Investor</label>  --> 
+                    <a href="#"><i class="icon-question-sign" data-toggle="popover" data-placement="top" data-html="true" title="Registration Type" data-content="Register a Project if you are going to raise capital!"></i></a>                    
                     <br> <span id="spn_invtyp"><select id="investor_type" class="span2" placeholder="Investor Type" required>
                             <option value="U">Un-Accredited</option>
                             <option value="A">Accredited</option>
@@ -344,9 +353,6 @@
                     </span>
                     <br> <label class="checkbox"><input type="checkbox" id="pptosnda" name="pptosnda" value="1" required>
                         I agree to the <a href="#" id="lnk_pp">privacy policy</a> and <a href="#" id="lnk_tos">terms of service</a> <!-- and the <a href="#" id="lnk_nda">non-disclosure agreement</a>-->.</label>
-                    <!-- <div class="well"><label>Upload a profile picture!</label>
-                    <p> <iframe src='jsp/upload.jsp' style='border: 0px; width: 100%'></iframe>
-                    </div> -->
                 </form>
             </fieldset>
         </div>
@@ -373,18 +379,8 @@
                                   placeholder='Summary - minimuum characters 20, maximum characters 500' style='width: 500px' required minlength="20" maxlength="500"></textarea>						
                     <br><textarea rows='10' id='description' name='description' class='input-xlarge'
                                   placeholder='Description - minimuum characters 200, maximum characters 5000' style='width: 500px' required minlength="200" maxlength="5000"></textarea>
-                    <!-- <br> <input type='text' id='website'
-                            class='input-xlarge' placeholder='Website'>-->
                     <br> <input type='text' id='video_url'
-                                class='input-xlarge' placeholder='Video Url' url="true">
-                    <!-- <br> <span
-                            class="help-inline">Image 1</span> <input type='file'
-                            id='image_1' class='input-medium' placeholder='Image 1'>
-                    <br> <span class="help-inline">Image 2</span> <input
-                            type='file' id='image_2' class='input-medium'
-                            placeholder='Image 2'> <br> <span class="help-inline">Image
-                            3</span> <input type='file' id='image_3' class='input-medium'
-                            placeholder='Image 3'>  -->					
+                                class='input-xlarge' placeholder='Video Url' url="true">					
                     <br> <input type='text' id='target_amount' name='target_amount' class='input-medium' placeholder='Target Amount' required><!-- number="true" min="1000" max="1000000"> -->
                 </form>
             </fieldset>
