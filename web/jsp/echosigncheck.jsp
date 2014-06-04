@@ -1,5 +1,10 @@
 <%@include file="db.jsp"%>
 <%
+//** diabled because of some change in the API side. document key is different from widget/form generation and callback fro echosign
+//widget/form - 2AAABLblqZhBZibb9r_hmT7ZvK7x-hR2IP5K6zq9wcNvhYzu5nWvjCic30RGaGarSVh_a23eqkZo*
+//callback - (documentKey, widgetKey): XA2YW4C3G682Q6X , XAXW2CP4Y6T5W74
+out.println("download success"); //take this out when fixed
+/*
 try{
 	String qry = "select downloaded_document from documents where document_key = ?";
 	logger.info(qry);
@@ -24,5 +29,5 @@ try{
 	} catch (Exception e) {
 	}
 }
-
+*/
 %>

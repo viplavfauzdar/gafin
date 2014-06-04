@@ -92,11 +92,13 @@
 			
 			if(table.equals("user")){
 				//** create wordpress account
-				String uri=getServletContext().getInitParameter("BLOG_URL") + "/vip-add-user.php?username=" + request.getParameter("username") + "&password1=" + request.getParameter("password1") + "&email=" + request.getParameter("email");
+                                //** blog url disabled for now 06.03.2014
+				/*String uri=getServletContext().getInitParameter("BLOG_URL") + "/vip-add-user.php?username=" + request.getParameter("username") + "&password1=" + request.getParameter("password1") + "&email=" + request.getParameter("email");
 				logger.info(uri);
 				java.net.URL url = new java.net.URL(uri);
 				logger.info(""+url.openConnection().getContent());
-				
+				*/
+                            
 				//** send confirmation email
 				com.gafinance.utils.SendMail s = new com.gafinance.utils.SendMail();
 				s.Send(getServletContext().getInitParameter("WEBSITE_EMAIL"), getServletContext().getInitParameter("WEBSITE_EMAIL_PASS"), request.getParameter("email"), getServletContext().getInitParameter("WEBSITE_EMAIL"), "Thank you for registering with Finance Georgia", "<h4>Thank you for registering with Finance Georgia.</h4><h5>Please make a note of the information below:</h5><p><b>Username: </b>" + request.getParameter("username") + "<p><b>Password:</b> your chosen password<p>In addition a <u>blog account</u> has been created for you with the same username and password as above. <p>Please <a href=" + getServletContext().getInitParameter("BLOG_URL")+ "/wp-admin target=_new>click here</a> to access the blog and post your updates. <p>You should <u>log back</u> in to continue finishing your profile including setting up a <u>bank account</u> and uploading pictures and documents. <p>An email has also been sent to you with this information.<p>-Thanks <br><small>Finance Georgia Team.</small>");

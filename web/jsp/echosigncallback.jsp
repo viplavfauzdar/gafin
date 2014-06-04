@@ -8,7 +8,7 @@ String widgetKey = request.getParameter("widgetKey");
 logger.info("Echosign Callback: (documentKey, widgetKey): " + documentKey + " , " + widgetKey);
 
 if(widgetKey==null) widgetKey = documentKey; //** happens when emails sent for 2 signature.
-
+if(widgetKey==null) throw new Exception("Adobe Echosign caused an error. Please try again later.");
 //** get document info from table
 try{
 	String qry = "select user_id, document from documents where document_key = ?";

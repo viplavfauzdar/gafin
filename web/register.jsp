@@ -150,7 +150,9 @@
                     if (status.match('success')) {
                         $('#mdl_location').modal('hide');
                         appalert("Registeration successful! Please signin to continue!!", "success");
-                        bootbox.alert("<h4>Thank you for registering with Finance Georgia.</h4><h5>Please make a note of the information below:</h5><p><b>Username: </b>" + $('#username').val() + "<p><b>Password:</b> your chosen password<p>In addition a <u>blog account</u> has been created for you with the same username and password as above. <p>Please <a href=<%=getServletContext().getInitParameter("BLOG_URL")%>/wp-admin target=_new>click here</a> to access the blog and post your updates. <p>You should <u>log back</u> in to continue finishing your profile including setting up a <u>bank account</u> and uploading pictures and documents. <p>An email has also been sent to you with this information.<p>-Thanks <br><small>Finance Georgia Team.</small>", function() {
+                        //** below blog url info from bootbox disabled 06.03.2014
+                        //<p>In addition a <u>blog account</u> has been created for you with the same username and password as above. <p>Please <a href=<%=getServletContext().getInitParameter("BLOG_URL")%>/wp-admin target=_new>click here</a> to access the blog and post your updates.
+                        bootbox.alert("<h4>Thank you for registering with Finance Georgia.</h4><h5>Please make a note of the information below:</h5><p><b>Username: </b>" + $('#username').val() + "<p><b>Password:</b> your chosen password <p>You should <u>log back</u> in to continue finishing your profile including setting up a <u>bank account</u> and uploading pictures and documents. <p>An email has also been sent to you with this information.<p>-Thanks <br><small>Finance Georgia Team.</small>", function() {
                             $('#frame_files').attr('src', 'jsp/files.jsp?t=' + Math.random());
                             $('#mdl_upload').modal('show');
                         });
@@ -266,17 +268,16 @@
                         $("#div_user").removeClass('error');
                         $("#div_user").addClass('success');
                     }
-                    $('#password1').focus(function() {
-                        alert('asdasd');
+                    $("#password1").focus(function() {
                         $("#chk_usr").popover("hide");
                     });
-                    //$( "#username" ).blur(function() {
-                    //    $("#chk_usr").popover("hide");
-                    //});
+                    $( "#username" ).blur(function() {
+                        $("#chk_usr").popover("hide");
+                    });
                 });
             }
         };
-
+                
         $('#chk_usr').click(function() {
             chkuser();
         });
