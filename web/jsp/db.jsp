@@ -1,7 +1,6 @@
 <%@page import="java.sql.*"%>
 <%@include file="logging.jsp"%>
 <%
-
 Connection con = null;
 try {
 	//Tomcat DBCP

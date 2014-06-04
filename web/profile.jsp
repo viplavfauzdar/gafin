@@ -10,7 +10,7 @@
 <div class="tabbable span12">
 	<ul class="nav nav-tabs">
  		<li class="active" style='width:50%'><a href="#tab1" data-toggle="tab">Profile</a></li>
- 		<li style='width:50%'><a href="#tab2" data-toggle="tab">News & Updates</a></li>
+ 		<!--<li style='width:50%'><a href="#tab2" data-toggle="tab">News & Updates</a></li>-->
 	</ul>
 	
 			
@@ -176,11 +176,11 @@ $(document).ready(function() {
 	</div>
 </div>
 	
-<div class="tab-pane" id="tab2">
-<div class="well">
+<!--<div class="tab-pane" id="tab2">
+<!--<div class="well">-->
 	<!-- <iframe src="http://wp-gafinance.rhcloud.com/?page_id=27" style="border:0;height:800px;width:100%;margin:0px"></iframe>  -->
-	<iframe src='http://24.126.149.255/wordpress/vip-load-blog.php?username=<%=username%>' style="border:0;height:800px;width:100%;margin:0px"></iframe>
-</div>
+	<!--<iframe src='http://24.126.149.255/wordpress/vip-load-blog.php?username=<%=username%>' style="border:0;height:800px;width:100%;margin:0px"></iframe>-->
+</div>-->
 </div>
 </div> <!-- /tab content -->
 </div> <!-- /tababble -->
